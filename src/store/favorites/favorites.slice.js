@@ -9,7 +9,7 @@ export const favoritesSlice = createSlice({
     toggleFavorites: (state, action) => {
       const recipe = action.payload;
       if (state.some((el) => el.id === recipe.id)) {
-        state = state.filter((el) => el.id !== recipe.id);
+        return state.filter((el) => el.id !== recipe.id);
       } else {
         state.push(recipe);
       }
