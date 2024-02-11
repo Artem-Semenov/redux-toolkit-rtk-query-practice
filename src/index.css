@@ -25,3 +25,21 @@ button {
 button:hover {
   background: rgb(187, 130, 140);
 }
+form {
+  padding: 0 10px;
+}
+
+input {
+  border: 2px solid transparent;
+  outline: none;
+  color: #222;
+  padding: 4px 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: 0.3s all ease;
+  display: block;
+}
+
+input:focus {
+  border-color: pink;
+}

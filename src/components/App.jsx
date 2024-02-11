@@ -1,14 +1,21 @@
 import { useGetRecipesQuery } from "../store/api/api";
+import { CreateRecipe } from "./createRecipe/CreateRecipe";
 import { Header } from "./header/Header";
 import RecipeItem from "./recipe-item/RecipeItem";
 import User from "./user/user";
 
+const userId = 1;
+
 function App() {
-  const { isLoading, data } = useGetRecipesQuery();
+  const { isLoading, data } = useGetRecipesQuery(undefined, {
+    skip: !userId,
+  });
+
   console.log(isLoading, data);
   return (
     <section>
       <Header />
+      <CreateRecipe />
       {/* <User /> */}
       <div>
         {isLoading
