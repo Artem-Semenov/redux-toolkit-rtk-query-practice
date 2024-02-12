@@ -1,8 +1,13 @@
 import styles from "./RecipeItem.module.css";
 import { useActions } from "../../hooks/useActions";
 import { useFavorites } from "../../hooks/useFavorites";
+import { IRecipe } from "../../types/recipe.types";
 
-const RecipeItem = ({ recipe }) => {
+interface iRecipeItem {
+  recipe: IRecipe;
+}
+
+const RecipeItem = ({ recipe }: iRecipeItem) => {
   const { toggleFavorites } = useActions();
   const favorites = useFavorites();
   const isFavorite = favorites.some((el) => el.id === recipe.id);

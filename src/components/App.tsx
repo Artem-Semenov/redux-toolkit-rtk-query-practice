@@ -7,7 +7,7 @@ import User from "./user/user";
 const userId = 1;
 
 function App() {
-  const { isLoading, data } = useGetRecipesQuery(undefined, {
+  const { isLoading, data } = useGetRecipesQuery(null, {
     skip: !userId,
   });
 

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useCreateRecipeMutation } from "../../store/api/recipe.api";
+import { IRecipeData } from "../../types/recipe.types";
 
 export const CreateRecipe = () => {
   const initialState = {
@@ -7,11 +8,11 @@ export const CreateRecipe = () => {
     image: "",
   };
 
-  const [recipe, setRecipe] = useState(initialState);
+  const [recipe, setRecipe] = useState<IRecipeData>(initialState);
 
   const [createRecipe, result] = useCreateRecipeMutation();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(recipe);
     createRecipe(recipe).then(() => {
