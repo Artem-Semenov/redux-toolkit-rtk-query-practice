@@ -8,11 +8,12 @@ export const api = createApi({
     baseUrl: `${import.meta.env.VITE_APP_BASE_URL}/recipes`,
   }),
   endpoints: (builder) => ({
-    getRecipes: builder.query<IRecipe[], null>({
-      query: () => "/",
-      providesTags: () => [
+    getRecipes: builder.query<IRecipe[], string>({
+      query: (searchTerm) => `/?_sort=-id,id&name=${searchTerm}`,
+      providesTags: (result, error, searchTerm) => [
         {
           type: "Recipe",
+          id: searchTerm,
         },
       ],
     }),
